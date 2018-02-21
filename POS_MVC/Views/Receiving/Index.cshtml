@@ -1,0 +1,99 @@
+﻿@model IEnumerable<POS_MVC.Models.stock_in>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.stock_in_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.supplier_payment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.qty_of_producttypes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.paid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.move_to_stock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.left_amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.paid_amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.return_amt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.admin_user.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.total_daily_transition.daily_transition_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.supplier.supplier_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.supplier_payment_left.supplier_payment_left_id)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.stock_in_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.supplier_payment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.qty_of_producttypes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.paid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.move_to_stock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.left_amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.paid_amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.return_amt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.admin_user.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.total_daily_transition.daily_transition_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.supplier.supplier_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.supplier_payment_left.supplier_payment_left_id)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.stock_in_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.stock_in_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.stock_in_id })
+        </td>
+    </tr>
+}
+
+</table>

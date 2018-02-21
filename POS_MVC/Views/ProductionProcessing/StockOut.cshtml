@@ -1,0 +1,154 @@
+﻿
+
+<div class="row">
+    <label>Stock out to Production</label>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="well bs-component">
+                        <form class="form-horizontal">
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">
+                                        Invoice No/চালান নং:
+                                    </label>
+                                    <div class="col-md-2">
+                                        <input type="text" value="001" readonly id="txtPoNo" name="txtPoNo" class="form-control" />
+                                    </div>
+                                    <label class="col-md-2 control-label">
+                                        Date:
+                                    </label>
+                                    <div class="col-md-3">
+                                        <input type="date" id="txtDate" name="txtDate" class="form-control" />
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">
+                                        Notes/মন্তব্য:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" id="txtDescriptions" name="txtDescriptions" class="form-control" />
+                                    </div>
+                                </div>
+
+                                <div class="ibox-content" id="divInfo">
+                                    <div class="form-group">
+                                        <div class="col-md-12 table-responsive" id="div-productGroup">
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+
+                    <div>
+
+                        <div class="ibox-content" id="divInfo">
+                            <div class="form-group">
+                                <div class="col-md-12 table-responsive" id="div-inventoryGroup">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <h4>Added Stock Out</h4>
+                                <div class="col-md-12 table-responsive" id="div-stockOut-add">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-lg-offset-1">
+                        <form class="bs-component">
+                            <script id="templateInventoryGroupModal" type="text/html">
+                                <table class="table table-bordered table-striped table-hover" id="inventoryGroupTableModal">
+                                    <thead>
+                                    <th>Id</th>
+                                    <th>ProductId</th>
+                                    <th>Product</th>
+                                    <th>Supplier</th>
+                                    <th>WarehouseId</th>
+                                    <th>QtyInBale</th>
+                                    <th>BalanceQty</th>
+                                    <th>ProductionQty</th>
+                                    <th>Action</th>
+                                    </thead>
+                                    <tbody>
+                                        {{#InventoryGroupSearch}}
+                                        <tr>
+                                            <td>{{Id}}</td>
+                                            <td>{{Product.Id}}</td>
+                                            <td> {{Product.ProductName}}</td>
+                                            <td> {{Supplier.Name}}</td>
+                                            <td> {{WareHouse.WareHouseName}}</td>
+                                            <td> {{QtyInBale}}</td>
+                                            <td> {{BalanceQty}}</td>
+                                            <td>
+                                                <input type="text" name="txtProductionQty" id="txtProductionQty" class="form-control" />
+                                            </td>
+                                            <td class="action-sm">
+                                                <a class="btn btn-primary btn-xs" id="btnAdd" onclick="LoadForAdd('{{Id}}')"><i class="fa fa-edit"></i> Add</a>
+
+                                            </td>
+                                        </tr>
+
+                                        {{/InventoryGroupSearch}}
+                                    </tbody>
+                                </table>
+                            </script>
+                        </form>
+                    </div>
+                    <div class="form-actions">
+                        <div class="col-md-12">
+                            <button class="btn btn-w-m btn-info" data-style="expand-left" id="btnSave" type="button" onclick="Save()"><i class="fa fa-save"></i>&nbsp; Save</button>
+                            <button class="btn btn-w-m btn-success" type="button" id="btnReset" onclick="ResetForm()"><i class="fa fa-refresh"></i>&nbsp;Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="templateStockOutModal" type="text/html">
+    <table class="table table-bordered table-striped table-hover" id="stockOutTableModal">
+        <thead>
+        <th></th>
+        <th>আইটেম</th>
+        <th>গোডাউন</th>
+        <th>বস্তা</th>
+        <th>কেজি/বস্তা</th>
+        <th>Action </th>
+        </thead>
+        <tbody>
+        {{#StockTableAdd}}
+        <tr>
+            <td>{{inventoryCountCount}}</td>
+                <td> {{Product.ProductName}}</td>
+                <td> {{WareHouse.WareHouseName}}</td>
+                <td> {{BaleQty}}</td>
+                <td> {{BaleWeight}}</td>
+                <td>
+                    <a class="btn btn-danger" onclick="OnDeleteStockOut('{{inventoryCountCount}}')"><i class="fa fa-trash-o"></i></a>
+                </td>
+            </tr>
+            {{/StockTableAdd}}
+        </tbody>
+    </table>
+</script>
+<script>
+    function calculateRow(row) {
+        var price = +row.find('input[name^="price"]').val();
+    }
+
+    function calculateGrandTotal() {
+        var grandTotal = 0;
+        $("table.order-list").find('input[name^="price"]').each(function () {
+            grandTotal += +$(this).val();
+        });
+        $("#grandtotal").text(grandTotal.toFixed(2));
+    }
+</script>
+<script src="~/Scripts/app/CommonLoader.js"></script>
+<script src="~/Scripts/app/StockOut.js"></script>

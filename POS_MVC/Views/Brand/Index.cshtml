@@ -1,0 +1,122 @@
+﻿@model POS_MVC.Models.Category
+@{
+    ViewBag.Title = "Brand Setup";
+}
+
+<link rel="icon" type="img/x-icon" href="~/Content/Images/bill.jpg" />
+
+<script id="templateProductGroupModal" type="text/html">
+    <table class="table table-bordered table-striped table-hover" id="productGroupTableModal">
+        <thead>
+        <th>Brand Name</th>
+        <th>BrandName In Bangla</th>
+        <th>Action</th>
+        </thead>
+        <tbody>
+            {{#ProductGroupSearch}}
+
+            <tr>
+                <td> {{BrandName}}</td>
+                <td> {{BrandNameInBangla}}</td>
+                <td class="action-sm">
+                    <a class="btn btn-primary btn-xs" onclick="OnSelectProductGroup('{{Id}}')"><i class="fa fa-edit"></i> Select</a>
+                </td>
+            </tr>
+            {{/ProductGroupSearch}}
+        </tbody>
+    </table>
+</script>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Brand Setup</h5>
+            </div>
+
+            <div class="ibox-content" id="divUserRole">
+                <div class="form-horizontal">
+                    <form name="frmUserRole" id="frmUserRole" action="javascript:;">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">
+                                Brand Name:
+                            </label>
+                            <div class="col-md-4">
+                                <input type="text" id="txtBrandName" name="txtBrandName" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">
+                                BrandName In Bangla:
+                            </label>
+                            <div class="col-md-4">
+                                <input type="text" id="txtBrandNameBang" name="txtBrandNameBang" class="form-control" />
+                            </div>
+                        </div>
+                        <fieldset>
+                            <div class="form-actions">
+                                <div class="col-md-12">
+                                    <button class="btn btn-w-m btn-info" data-style="expand-left" id="btnSave" type="button" onclick="Save()"><i class="fa fa-save"></i>&nbsp; Save</button>
+                                    <button class="btn btn-w-m btn-primary" data-style="expand-left" id="btnUpdate" type="button" onclick="Update()"><i class="fa fa-save"></i>&nbsp; Update</button>
+                                    <button class="btn btn-danger" data-style="expand-left" id="btnDelete" type="button" onclick="Delete()"><i class="fa fa-minus"></i>&nbsp; Delete</button>
+                                    <button class="btn btn-w-m btn-success" type="button" id="btnReset" onclick="ResetForm()"><i class="fa fa-refresh"></i>&nbsp;Reset</button>
+
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div class="ibox-title">
+                            <h5>Brand List</h5>
+                        </div>
+
+                        <div class="ibox-content" id="divInfo">
+
+                            <div class="form-group">
+                                <div class="col-md-12 table-responsive" id="div-productGroup">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+
+        </div>
+        <p></p>
+    </div>
+</div>
+
+
+
+<style type="text/css">
+    fieldset {
+        margin: 4px;
+        border: 1px solid silver;
+        padding: 4px;
+        border-radius: 2px;
+        border-color: lightgray;
+    }
+
+    legend {
+        padding: 2px;
+        font-size: 14px;
+        font-weight: bolder;
+        color: grey;
+    }
+</style>
+<script src="~/Scripts/app/Brand.js"></script>
+
+
+
+
+
+
+
+
+
+

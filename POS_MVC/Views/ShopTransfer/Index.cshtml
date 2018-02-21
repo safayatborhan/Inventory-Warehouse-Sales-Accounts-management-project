@@ -1,0 +1,178 @@
+﻿@{
+    ViewBag.Title = "Shop Transfer";
+}
+<style type="text/css">
+    fieldset {
+        margin: 4px;
+        border: 1px solid silver;
+        padding: 4px;
+        border-radius: 2px;
+        border-color: lightgray;
+    }
+
+    legend {
+        padding: 2px;
+        font-size: 14px;
+        font-weight: bolder;
+        color: grey;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="well bs-component">
+                        <form class="form-horizontal">
+                            <fieldset>
+                                <div class="form-group">                                    
+                                    <label class="col-md-2 control-label">
+                                        Send/Transfer To:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <select class="form-control" id="ddlBranch" name="ddlBranch"></select>
+                                    </div>
+                                    <label class="col-md-2 control-label">
+                                        Supplier:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <select class="form-control" id="ddlSupplier" name="ddlSupplier"></select>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">
+                                        Descriptions:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <textarea id="txtDescriptions" name="txtDescriptions" class="form-control"></textarea>
+                                    </div>
+                                    <label class="col-md-2 control-label">
+                                        Warehouse:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <select class="form-control" id="ddlWareHouse" name="ddlWareHouse"></select>
+                                    </div>
+                                </div>
+                                <div class="ibox-title">
+                                </div>
+                                <br />
+                                <br />
+
+                                <div class="ibox-content" id="divInfo">
+
+                                    <div class="form-group">
+                                        <div class="col-md-12 table-responsive" id="div-product">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div>
+                                    <h2>Shop Transfer</h2>
+                                </div>
+                                <div class="ibox-content" id="divInfoAdd">
+
+                                    <div class="form-group">
+                                        <div class="col-md-12 table-responsive" id="div-product-add">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <fieldset>
+                                    <div class="form-actions">
+                                        <div class="col-md-12">
+                                            <button class="btn btn-w-m btn-info" data-style="expand-left" id="btnSave" type="button" onclick="Save()"><i class="fa fa-save"></i>&nbsp; Save</button>
+                                            <button class="btn btn-w-m btn-success" type="button" id="btnReset" onclick="ResetForm()"><i class="fa fa-refresh"></i>&nbsp;Reset</button>
+
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-lg-offset-1">
+                    <form class="bs-component">
+                        <fieldset></fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="templateProductModal" type="text/html">
+    <table class="table table-bordered table-striped table-hover" id="productTableModal">
+        <thead>
+        <th>Id</th>
+        <th>Item Info</th>
+        <th>Barcode</th>
+        <th>Sales price</th>
+        <th>WholeSalesPrice</th>
+        <th>Qty</th>
+        <th>Action</th>
+        </thead>
+        <tbody>
+            {{#ProductSearch}}
+            <tr>
+                <td>{{Item.Id}}</td>
+                <td> {{Item.DesignName}}->{{Item.ProductName}}->{{Item.Size}}->{{Item.ColorName}}</td>
+                <td> {{Item.Barcode1}}</td>
+                <td> {{Item.RetailPrice}}</td>
+                <td> {{Item.WholeSalesPrice}}</td>
+                <td>
+                    <input type="text" value="{{Quantity}}" class="form-control" id="txtQty_{{ProductCode}}" />
+                </td>
+                <td class="action-sm">
+                    <a class="btn btn-primary btn-xs" onclick="OnSelectProduct('{{Item.Id}}')"><i class="fa fa-Add"></i> Add</a>
+                </td>
+            </tr>
+            {{/ProductSearch}}
+        </tbody>
+    </table>
+</script>
+<script id="templateProductModalAdd" type="text/html">
+    <table class="table table-bordered table-striped table-hover" id="productTableModalAdd">
+        <thead>
+        <th>ItemInfo</th>
+        <th>Barcode</th>
+        <th>Sales price</th>
+        <th>WholeSalesPrice</th>
+        <th>Qty</th>
+        <th>Action</th>
+        </thead>
+        <tbody>
+            {{#ProductSearchAdd}}
+            <tr>
+                <td style="display:none">{{Id}}</td>
+                <td> {{ItemInfo}}</td>
+                <td> {{Barcode1}}</td>
+                <td> {{RetailPrice}}</td>
+                <td> {{WholeSalesPrice}}</td>
+                <td>
+                    {{Quantity}}
+                </td>
+                <td class="action-sm">
+                    <a class="btn btn-primary btn-xs" onclick="OnSelectProduct('{{Id}}')"><i class="fa fa-Add"></i> Delete</a>
+                </td>
+            </tr>
+            {{/ProductSearchAdd}}
+        </tbody>
+    </table>
+</script>
+<script src="~/Scripts/app/CommonLoader.js"></script>
+<script src="~/Scripts/app/ShopTransfer.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+

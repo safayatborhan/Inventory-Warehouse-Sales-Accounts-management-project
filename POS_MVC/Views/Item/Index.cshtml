@@ -1,0 +1,237 @@
+﻿@{
+    ViewBag.Title = "Item Setup";
+}
+<style type="text/css">
+    fieldset {
+        margin: 4px;
+        border: 1px solid silver;
+        padding: 4px;
+        border-radius: 2px;
+        border-color: lightgray;
+    }
+
+    legend {
+        padding: 2px;
+        font-size: 14px;
+        font-weight: bolder;
+        color: grey;
+    }
+</style>
+
+
+<div class="page-title">
+    <div>
+        <h1><i class="fa fa-edit"></i> Item</h1>
+
+    </div>
+    <div>
+        <ul class="breadcrumb">
+            <li><i class="fa fa-home fa-lg"></i></li>
+            <li>Forms</li>
+            <li><a href="#">Form Components</a></li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="well bs-component">
+                        <form class="form-horizontal">
+                            <fieldset>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">
+                                        Product:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <select class="form-control" id="ddlProduct" name="ddlProduct"></select>
+                                    </div>
+
+                                    <label class="col-md-2 control-label">
+                                        Category:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <select class="form-control" id="ddlCategory" name="ddlCategory"></select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">
+                                        Size Name:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <select class="form-control" id="ddlSize" name="ddlSize"></select>
+                                    </div>
+
+                                    <label class="col-md-2 control-label">
+                                        Design Name:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <select class="form-control" id="ddlDesign" name="ddlDesign"></select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">
+                                        Color Name:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <select class="form-control" id="ddlColor" name="ddlColor"></select>
+                                    </div>
+                                    <label class="col-md-2 control-label">
+                                        SBC:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" id="txtSBC" readonly="readonly" placeholder="Autogenarate" name="txtSBC" class="form-control" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label class="col-md-2 control-label">
+                                        PBC:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" id="txtPBC" readonly="readonly" placeholder="Autogenarate" name="txtPBC" class="form-control" />
+                                    </div>
+                                    <label class="col-md-2 control-label">
+                                        Barcode1:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" id="txtBarcode1" name="txtBarcode1" class="form-control" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label class="col-md-2 control-label">
+                                        Barcode2:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" id="txtBarcode2" name="txtBarcode2" class="form-control" />
+                                    </div>
+                                    <label class="col-md-2 control-label">
+                                        Cost Price:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" id="txtCostPrice" name="txtCostPrice" class="form-control" />
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label class="col-md-2 control-label">
+                                        Retail Price:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" id="txtRetailPrice" name="txtRetailPrice" class="form-control" />
+                                    </div>
+                                    <label class="col-md-2 control-label">
+                                        Upload Picture:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input  type="file" id="FileUpload1" multiple="True" />
+                                        <input type="button" id="btnUpload" value="Upload Files" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">
+                                        Whole Sales Price:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" id="txtWSPrice" name="txtWSPrice" class="form-control" />
+                                    </div>
+                                </div>
+
+                                <fieldset>
+                                    <div class="form-actions">
+                                        <div class="col-md-12">
+                                            <button class="btn btn-w-m btn-info" data-style="expand-left" id="btnSave" type="button" onclick="ItemSave()"><i class="fa fa-save"></i>&nbsp; Save</button>
+                                            <button class="btn btn-w-m btn-primary" data-style="expand-left" id="btnUpdate" type="button" onclick="Update()"><i class="fa fa-save"></i>&nbsp; Update</button>
+                                            <button class="btn btn-danger" data-style="expand-left" id="btnDelete" type="button" onclick="Delete()"><i class="fa fa-minus"></i>&nbsp; Delete</button>
+                                            <button class="btn btn-w-m btn-success" type="button" id="btnReset" onclick="ResetForm()"><i class="fa fa-refresh"></i>&nbsp;Reset</button>
+
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <div class="ibox-title">
+                                    @*<h5>Color List</h5>*@
+                                </div>
+                                <br />
+                                <br />
+
+                                <div class="ibox-content" id="divInfo">
+
+                                    <div class="form-group">
+                                        <div class="col-md-12 table-responsive" id="div-productGroup">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-lg-offset-1">
+                    <form class="bs-component">
+                        <fieldset>
+                            <script id="templateProductGroupModal" type="text/html">
+                                <table class="table table-bordered table-striped table-hover" id="productGroupTableModal">
+                                    <thead>
+                                    <th>ProductName</th>
+                                    <th>DesignName</th>
+                                    <th>Size</th>
+                                    <th>ColorName</th>
+                                    <th>CostPrice</th>
+                                    <th>RetailPrice</th>
+                                    <th>WholeSalesPrice</th>
+                                    <th>Action</th>
+                                    </thead>
+                                    <tbody>
+                                        {{#ProductGroupSearch}}
+
+                                        <tr>
+                                            <td> {{ProductName}}</td>
+                                            <td> {{DesignName}}</td>
+                                            <td> {{Size}}</td>
+                                            <td> {{ColorName}}</td>
+                                            <td> {{CostPrice}}</td>
+                                            <td> {{RetailPrice}}</td>
+                                            <td> {{WholeSalesPrice}}</td>
+                                            <td class="action-sm">
+                                                <a class="btn btn-primary btn-xs" onclick="OnSelectProductGroup('{{Id}}')"><i class="fa fa-edit"></i> Select</a>
+                                            </td>
+                                        </tr>
+
+                                        {{/ProductGroupSearch}}
+                                    </tbody>
+                                </table>
+                            </script>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/app/Item.js"></script>
+<script src="~/Scripts/app/PictureUpload.js"></script>
+
+
+
+
+
+
+
+
+
+
+

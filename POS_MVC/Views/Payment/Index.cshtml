@@ -1,0 +1,192 @@
+﻿
+
+<div class="row">
+    <label>Payment(পেমেন্ট)</label>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="well bs-component">
+                        <form class="form-horizontal">
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">
+                                        Voucher No/ভাউচার নং:
+                                    </label>
+                                    <div class="col-md-2">
+                                        <input type="text" value="001" readonly id="txtVoucherNo" name="txtPoNo" class="form-control" />
+                                    </div>
+                                    <label class="col-md-2 control-label">
+                                        Bank/Cash:
+                                    </label>
+                                    <div class="col-md-2">
+                                        <select id="ddlBankCash" class="form-control">
+                                            <option value="0">পছন্দ করুন</option>
+                                            <option value="1">Cash</option>
+                                            <option value="1">Bank</option>
+                                        </select>                                    
+                                    </div>
+                                    <label class="col-md-1 control-label">
+                                        Date:
+                                    </label>
+                                    <div class="col-md-3">
+                                        <input type="date" id="txtDate" name="txtDate" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">
+                                        Notes/মন্তব্য:
+                                    </label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="txtDescriptions" name="txtDescriptions" class="form-control" />
+                                    </div>
+                                </div>
+
+                                <div class="ibox-content" id="divInfo">
+                                    <div class="form-group">
+                                        <div class="col-md-12 table-responsive" id="div-productGroup">
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+
+                    <div>
+                        <table id="myTable" class="table order-list">
+                            <thead>
+                                <tr>
+                                    <td>Cash/Bank</td>
+                                    <td>Bank</td>
+                                    <td>Cheque/TT No</td>
+                                    <td>Cheque Date</td>
+                                    <td>Amount</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="col-sm-2">
+                                       <input type="text" readonly class="form-control" />
+                                    </td>
+                                    <td class="col-sm-1">
+                                        <select id="ddlAccountLedger" class="form-control">
+                                            <option value="0">পছন্দ করুন</option>
+                                            <option value="1">AB Bank</option>
+                                            <option value="1">Brac Bank</option>
+                                        </select>
+                                    </td>
+                                    <td class="col-sm-1">
+                                        <input type="text" name="txtAmount" class="form-control" />
+                                    <td class="col-sm-2">
+                                        <input type="text" name="txtChecqueNo" class="form-control" />
+                                    </td>
+
+                                    <td class="col-sm-2">
+                                        <input type="text" name="txtCheckDate" class="form-control" />
+                                    </td>
+                                    <td class="col-sm-2">
+                                        <a class="deleteRow"></a>
+                                    </td>
+                                    <td class="col-sm-1">
+                                        <input type="button" class="btn btn-lg btn-block " id="addrow" value="Add" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr></tr>
+                                <tr></tr>
+                            </tfoot>
+                        </table>
+
+                        <div class="ibox-content" id="divInfo">
+
+                            <div class="form-group">
+                                <div class="col-md-12 table-responsive" id="div-product">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <fieldset>
+                        <div class="form-actions">
+                            <div class="col-md-12">
+                                <button class="btn btn-w-m btn-info" data-style="expand-left" id="btnSave" type="button" onclick="Save()"><i class="fa fa-save"></i>&nbsp; Save</button>
+                                <button class="btn btn-w-m btn-success" type="button" id="btnReset" onclick="ResetForm()"><i class="fa fa-refresh"></i>&nbsp;Reset</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="templateProductModal" type="text/html">
+    <table class="table table-bordered table-striped table-hover" id="productTableModal">
+        <thead>
+        <th>Id</th>
+        <th>Item Info</th>
+        <th>Barcode</th>
+        <th>Sales price</th>
+        <th>WholeSalesPrice</th>
+        <th>Balance Qty</th>
+        </thead>
+        <tbody>
+            {{#ProductSearch}}
+            <tr>
+                <td>{{Item.Id}}</td>
+                <td> {{Item.DesignName}}->{{Item.ProductName}}->{{Item.Size}}->{{Item.ColorName}}</td>
+                <td> {{Item.Barcode1}}</td>
+                <td> {{Item.RetailPrice}}</td>
+                <td> {{Item.WholeSalesPrice}}</td>
+                <td> {{BalanceQty}}</td>
+            </tr>
+            {{/ProductSearch}}
+        </tbody>
+    </table>
+</script>
+<script>
+    $(document).ready(function () {
+        var counter = 0;
+
+        $("#addrow").on("click", function () {
+            var newRow = $("<tr>");
+            var cols = "";
+
+            cols += '<td><input type="text" class="form-control" name="name' + counter + '"/></td>';
+            cols += '<td><input type="text" class="form-control" name="mail' + counter + '"/></td>';
+            cols += '<td><input type="text" class="form-control" name="phone' + counter + '"/></td>';
+
+            cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>';
+            newRow.append(cols);
+            $("table.order-list").append(newRow);
+            counter++;
+        });
+
+
+
+        $("table.order-list").on("click", ".ibtnDel", function (event) {
+            $(this).closest("tr").remove();
+            counter -= 1
+        });
+
+
+    });
+
+
+
+    function calculateRow(row) {
+        var price = +row.find('input[name^="price"]').val();
+
+    }
+
+    function calculateGrandTotal() {
+        var grandTotal = 0;
+        $("table.order-list").find('input[name^="price"]').each(function () {
+            grandTotal += +$(this).val();
+        });
+        $("#grandtotal").text(grandTotal.toFixed(2));
+    }
+</script>
+<script src="~/Scripts/app/CommonLoader.js"></script>
+<script src="~/Scripts/app/GoodReceive.js"></script>
+

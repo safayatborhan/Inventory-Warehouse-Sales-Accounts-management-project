@@ -1,0 +1,129 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+    <div class="row">
+        <div class="col-md-3">
+            <div class="widget-small primary">
+                <i class="icon fa fa-users fa-3x"></i>
+                <div class="info">
+                    <h4>Total Branchs</h4>
+                    <p id="totalBranch"><b>0</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="widget-small info">
+                <i class="icon fa fa-thumbs-o-up fa-3x"></i>
+                <div class="info">
+                    <h4>Today's Total Sell</h4>
+                    <p id="totalSales"><b>0.0</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="widget-small warning">
+                <i class="icon fa fa-files-o fa-3x"></i>
+                <div class="info">
+                    <h4>New Product Upload</h4>
+                    <p><b>100</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="widget-small danger">
+                <i class="icon fa fa-star fa-3x"></i>
+                <div class="info">
+                    <h4>Total Product</h4>
+                    <p><b>5000</b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="widget-small primary coloured-icon">
+                <i class="icon fa fa-users fa-3x"></i>
+                <div class="info">
+                    <h4>সর্বমোট ক্রেতা</h4>
+                    <p><b>৫০</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="widget-small info coloured-icon">
+                <i class="icon fa fa-thumbs-o-up fa-3x"></i>
+                <div class="info">
+                    <h4>Total Discount</h4>
+                    <p><b>25</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="widget-small warning coloured-icon">
+                <i class="icon fa fa-files-o fa-3x"></i>
+                <div class="info">
+                    <h4>Uploades</h4>
+                    <p><b>10</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="widget-small danger coloured-icon">
+                <i class="icon fa fa-star fa-3x"></i>
+                <div class="info">
+                    <h4>Stars</h4>
+                    <p><b>500</b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <h3 class="card-title">সর্বাধিক বিক্রয়</h3>
+                <div class="card-body" id="div-product-add">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <h3 class="card-title">সর্বোচ্চ ক্রেতা </h3>
+                <div class="messanger">                   
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div>
+        </div>
+    </div>
+<script id="templateProductGroupModal" type="text/html">
+    <table class="table table-bordered table-hover table-responsive" id="productGroupTableModal">
+        <thead>
+        <th>Product Name/পণ্য</th>
+        <th>Customer/ক্রেতা</th>
+        <th>Sales Qty</th>
+        <th>Price</th>
+        <th>Amount</th>
+        </thead>
+        <tbody>
+            {{#ProductGroupSearch}}
+            <tr>
+                <td> {{ProductName}}</td>
+                <td> {{DesignName}}</td>
+                <td> {{SalesQty}}</td>
+                <td> {{RetailPrice}}</td>
+                <td> {{TotalSalesAmount}}</td>
+            </tr>
+            {{/ProductGroupSearch}}
+        </tbody>
+    </table>
+</script>
+<script src="~/Scripts/app/HomePage.js"></script>
+<script>
+
+    $(document).ready(function () {
+        LoadStatistices();
+
+    });
+</script>

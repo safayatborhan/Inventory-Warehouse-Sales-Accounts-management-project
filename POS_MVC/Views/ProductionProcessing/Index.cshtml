@@ -1,0 +1,138 @@
+﻿
+@model IEnumerable<POS_MVC.Models.WareHouse>
+<div class="row">
+    <label>Stock In to Production</label>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="well bs-component">
+                        <form class="form-horizontal">
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">
+                                        Invoice No/চালান নং:
+                                    </label>
+                                    <div class="col-md-2">
+                                        <input type="text" value="001" readonly id="txtPoNo" name="txtPoNo" class="form-control" />
+                                    </div>
+                                    <label class="col-md-2 control-label">
+                                        Stock out InvoiceNo/চালান নং:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <select class="form-control" id="ddlStockOutInvoice" name="ddlStockOutInvoice"></select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">
+                                        Notes/মন্তব্য:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input type="text" id="txtDescriptions" name="txtDescriptions" class="form-control" />
+                                    </div>
+                                    <label class="col-md-2 control-label">
+                                        Date:
+                                    </label>
+                                    <div class="col-md-3">
+                                        <input type="date" id="txtDate" name="txtDate" class="form-control" />
+                                    </div>
+                                </div>
+
+                                <div class="ibox-content" id="divInfo">
+                                    <div class="form-group">
+                                        <div class="col-md-12 table-responsive" id="div-productGroup">
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+
+                    <div>
+
+                        <div class="ibox-content" id="divInfo">
+                            <div class="form-group">
+                                <div class="col-md-12 table-responsive" id="div-inventoryGroup">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-lg-offset-1">
+                        <form class="bs-component">
+                            <script id="templateInventoryGroupModal" type="text/html">
+                                <table class="table table-bordered table-striped table-hover" id="inventoryGroupTableModal">
+                                    <thead>
+                                    <th>আইডি</th>
+                                    <th>আইটেম</th>
+                                    <th>বস্তা</th>
+                                    <th>বস্তা/কেজি</th>
+                                    <th>মন/কেজি</th>
+                                    <th>গোডাউন</th>
+                                    </thead>
+                                    <tbody>
+                                    {{#InventoryGroupSearch}}
+                                    <tr>
+                                            <td> {{Id}}</td>
+                                            <td> {{ProductName}}</td>
+                                            <td>
+                                                <input type="text" name="txtBaleQty" id="txtBaleQty" class="form-control" />
+                                            </td>
+                                            <td>
+                                                <input type="text" name="txtBaleWeight" id="txtBaleWeight" class="form-control" />
+                                            </td>
+                                            <td>
+                                                <input type="text" name="txtWeightInMon" id="txtWeightInMon" class="form-control" />
+                                            </td>
+                                            <td>
+                                                <select class="form-control" id="ddlWareHouse" name="ddlWareHouse">
+                                                    @*@foreach (var item in Model.Inventories)
+            {
+                <option value=@item.Id>@item.WareHouse</option>
+            }*@
+                                                    @foreach(var item in Model)
+                                                    {
+                                                        <option value=@item.Id>@item.WareHouseName</option>
+                                                    }
+
+                                                </select>
+
+
+
+                                            </td>
+                                            </tr>
+
+                                            {{/InventoryGroupSearch}}
+                                        </tbody>
+                                    </table>
+                                </script>
+                        </form>
+                    </div>
+                        <div class="form-actions">
+                            <div class="col-md-12">
+                                <button class="btn btn-w-m btn-info" data-style="expand-left" id="btnSave" type="button" onclick="Save()"><i class="fa fa-save"></i>&nbsp; Save</button>
+                                <button class="btn btn-w-m btn-success" type="button" id="btnReset" onclick="ResetForm()"><i class="fa fa-refresh"></i>&nbsp;Reset</button>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function calculateRow(row) {
+        var price = +row.find('input[name^="price"]').val();
+    }
+
+    function calculateGrandTotal() {
+        var grandTotal = 0;
+        $("table.order-list").find('input[name^="price"]').each(function () {
+            grandTotal += +$(this).val();
+        });
+        $("#grandtotal").text(grandTotal.toFixed(2));
+    }
+</script>
+<script src="~/Scripts/app/CommonLoader.js"></script>
+<script src="~/Scripts/app/StockIn.js"></script>

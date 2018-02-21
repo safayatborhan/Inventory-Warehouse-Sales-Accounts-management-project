@@ -1,0 +1,120 @@
+﻿@model POS_MVC.Models.stock_in
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>stock_in</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.stock_in_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stock_in_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.supplier_payment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.supplier_payment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.qty_of_producttypes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.qty_of_producttypes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.move_to_stock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.move_to_stock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.left_amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.left_amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paid_amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paid_amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.return_amt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.return_amt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.admin_user.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.admin_user.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.total_daily_transition.daily_transition_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.total_daily_transition.daily_transition_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.supplier.supplier_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.supplier.supplier_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.supplier_payment_left.supplier_payment_left_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.supplier_payment_left.supplier_payment_left_id)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

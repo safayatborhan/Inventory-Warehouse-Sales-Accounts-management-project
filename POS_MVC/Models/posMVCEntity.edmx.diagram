@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d1ac5ba109cd4b6eb6409347a933a979" Name="Diagram1">
+        <EntityTypeShape EntityType="ricemillModel.AccountGroup" Width="1.5" PointX="15.5" PointY="31.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.AccountLedger" Width="1.5" PointX="17.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.AdditionalCost" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.AdvancePayment" Width="1.5" PointX="20" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.BankReconciliation" Width="1.5" PointX="22.25" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.Brand" Width="1.5" PointX="2.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.Category" Width="1.5" PointX="0.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.Company" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.ContraDetail" Width="1.5" PointX="25.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.ContraMaster" Width="1.5" PointX="23" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.CreditNoteMaster" Width="1.5" PointX="2.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.Customer" Width="1.5" PointX="11.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.Design" Width="1.5" PointX="8.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.Employee" Width="1.5" PointX="17.75" PointY="37" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.FinancialYear" Width="1.5" PointX="17.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.JournalDetail" Width="1.5" PointX="20" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.JournalMaster" Width="1.5" PointX="20" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.LedgerPosting" Width="1.5" PointX="20" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.Location" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.Picture" Width="1.5" PointX="10.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.Product" Width="1.5" PointX="3" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.ReceiveDetail" Width="1.5" PointX="8.25" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.ReceiveMaster" Width="1.5" PointX="6" PointY="28.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.RoleWiseScreenPermission" Width="1.5" PointX="11" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.SalesDelivery" Width="1.5" PointX="15.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.SalesDetail" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.SalesMaster" Width="1.5" PointX="13.5" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.SalesOrder" Width="1.5" PointX="11.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.SalesReturn" Width="1.5" PointX="12.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.Screen" Width="1.5" PointX="8.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.Setting" Width="1.5" PointX="0.75" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.StockIn" Width="1.5" PointX="5.25" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.StockOut" Width="1.5" PointX="8.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.Supplier" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.sysdiagram" Width="1.5" PointX="13.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.Tax" Width="1.5" PointX="13.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.UserInfo" Width="1.5" PointX="17.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.UserRole" Width="1.5" PointX="15.5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.VoucherType" Width="1.5" PointX="17.75" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.WareHouse" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ricemillModel.ProductInfo" Width="1.5" PointX="15.75" PointY="6.25" IsExpanded="true" />
+        <AssociationConnector Association="ricemillModel.FK_AccountLedger_AccountGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_AdvancePayment_Ledger" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_ContraDetails_Ledger" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_JournalDetails_Ladger" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_LedgerPosting_AccountLedger" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_AdvancePayment_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_AdvancePayment_VoucherType" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_AdvancePayment_Year" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_BankReconciliation_LadgerPosting" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_Product_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_ContraDetails_ContraMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_ContraMaster_Ledger" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_ContraMaster_User" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_ContraMaster_VoucherType" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_ContraMaster_Year" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_SalesDelivery_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_SalesMaster_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_SalesOrder_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_JournalMaster_Year" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_LedgerPosting_Year" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_JournalDetails_JournalMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_JournalMaster_User" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_JournalMaster_VoucherType" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_LedgerPosting_Voucher" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_ReceiveDetails_product" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_SalesDetails_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_SalesOrder_product" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_StockIn_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_StockOut_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_ReceiveDetails_RecieveMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_ReceiveDetails_Warehouse" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_ReceiveMaster_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_RoleWiseScreenPermission_Screens" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_SalesDelivery_SalesMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_SalesDetails_SalesMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_SalesMaster_Salesorder" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_StockIn_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_StockIn_Warehouse" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_StockOut_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_StockOut_Warehouse" ManuallyRouted="false" />
+        <AssociationConnector Association="ricemillModel.FK_UserInfo_UserInfo" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ricemillModel.Inventory" Width="1.5" PointX="13.25" PointY="0.75" />
+        <AssociationConnector Association="ricemillModel.FK_Inventory_Product" />
+        <AssociationConnector Association="ricemillModel.FK_Inventory_Supplier" />
+        <AssociationConnector Association="ricemillModel.FK_Inventory_WareHouse" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

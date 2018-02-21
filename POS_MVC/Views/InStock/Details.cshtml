@@ -1,0 +1,98 @@
+﻿@model POS_MVC.Models.stock_in_products
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>stock_in_products</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.product_buy_pric)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_buy_pric)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_sell_default_price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_sell_default_price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_qty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_qty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stock_status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stock_status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.additional_cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.additional_cost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stock_in_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stock_in_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.avail_stock_products.product_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.avail_stock_products.product_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.loc_stock_location.stock_location_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loc_stock_location.stock_location_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stock_in.stock_in_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stock_in.stock_in_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.supplier.supplier_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.supplier.supplier_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.stock_in_products_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

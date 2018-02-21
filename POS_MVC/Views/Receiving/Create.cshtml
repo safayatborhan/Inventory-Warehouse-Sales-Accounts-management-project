@@ -1,0 +1,319 @@
+﻿@model POS_MVC.Models.stock_in
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<style>
+    .sm {
+        width: 30px;
+        padding: 0px;
+    }
+    .md {
+        width: 70px;
+        padding: 0px;
+    }
+    .unsave {
+        background-color: #fffccc;
+    }
+    .unsave:hover td{
+        background-color: #fffccc !important;
+    } 
+    .table tfoot > tr > td {
+        padding: 3px;
+    }
+	.greentxt{
+		background-color: #cfc;
+	}
+</style>
+<script>
+    
+    $(document).ready(function () {
+        //$('.tblreceiving').delegate('input.txt', 'keyup', function (e) {
+        //    //$tr = $(this).closest('tr');
+        //    //$tr.addClass('unsave');
+        //});
+
+        //$('.tblreceiving').delegate('.btn-primary', 'click', function (e) {
+        //    console.log($(this));
+        //}); 
+    });
+</script>
+<h2>Create</h2>
+<div class="row" ng-controller="receivingcreatectrl">
+
+    <div class="col-md-8">
+        <div class="form-horizontal">
+            <h4>Products</h4>
+            <hr />
+            <div class="row">
+                <div class="col-md-12">
+                    <form ng-submit="getproduct()">
+                        <input type="number" ng-model="productid" value="" id="pid" placeholder="Product Id">
+                        <input type="submit" value="Add Product" />
+                    </form>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:20px">
+                <div class="col-md-12">
+                    <table class="table table-hover tblreceiving">
+                        <thead>
+                            <tr>
+                                <th>Item Name</th>
+                                <th>Cost</th>
+                                @*<th>Price</th>*@
+                                <th>Qty</th>
+                                <th>Disc</th>
+                                <th>Final Cost</th>
+                                <th>Total</th>
+                                <th>Option</th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                            <tr tr-id="{{p.product_id}}" tr-index="{{$index}}" ng-repeat="p in products track by $index">
+                                <td>{{p.product_name}}</td>
+                                <td><input type="text" value="{{p.cost}}" class="cost md txt" ng-keydown="keydowncheck($event)" /></td>
+                                @*<td><input type="text" value="{{p.current_price}}" class="current_price md txt" ng-keydown="keydowncheck($event)" /></td>*@
+                                <td><input type="text" value="1" class="qty md txt" ng-keydown="keydowncheck($event)" /></td>
+                                <td>
+                                    <input type="text" value="0" class="discount sm txt" ng-keydown="keydowncheck($event)" />
+                                    <a href="" ng-click="changeDtype($index, $event)" ng-show="p.discountType=='%'">%</a> <a href="" ng-click="changeDtype($index, $event)" ng-show="p.discountType=='$'">$</a>
+                                </td>
+                                <td class="finalcost">{{p.finalcost}}</td>
+                                <td>{{ getonetotal($index) }}</td>
+                                <td><input type="button" class="btn btn-xs btn-primary" value="Edit" data-id="1" ng-click="editrow($event)" /> <input type="button" class="btn btn-xs btn-default" value="Del" ng-click="deleterow($index)" /></td>
+                            </tr>
+
+                            @*product_id = p.product_id,
+                            product_name = p.product_name,
+                            category_id = p.category_id,
+                            subcategory_id = p.subcategory_id,
+                            qty = p.qty,
+                            current_price = p.current_price,
+                            cost = p.cost,
+                            category_name = c.category_name,
+                            subcategory_name = sc.subcategory_name*@
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5">Total</td>
+                                <td>{{ total }}</td>
+                                <td></td>
+                            </tr>
+                            
+                            <tr>
+                                <td colspan="5">Transport Cost</td>
+                                <td>
+                                    <input type="text" class="transportCost md" ng-model="transportCost" /> +
+                                </td>
+                                <td>
+                                    @*<select style="width:50px;">
+                                        <option>%</option>
+                                        <option>$</option>
+                                    </select>*@
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="5">Other fees</td>
+                                <td>
+                                    <input type="text" class="otherFees md" ng-model="otherFees" /> +
+                                </td>
+                                <td>
+                                    @*<select style="width:50px;">
+                                        <option>%</option>
+                                        <option>$</option>      
+                                    </select>*@
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="5">Tax</td>
+                                <td>
+                                    <input type="text" class="overallTax md" ng-model="overallTax" />
+                                    <a href="" ng-show="overallTaxType=='%'" ng-click="overallTaxType='$'">%</a> 
+                                    <a href="" ng-show="overallTaxType=='$'" ng-click="overallTaxType='%'">$</a>
+                                    +
+                                </td>
+                                <td>
+                                    @*<select style="width:50px;">
+                                        <option>%</option>
+                                        <option>$</option>
+                                    </select>*@
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td colspan="5">Overall Discount</td>
+                                <td>
+                                    <input type="text" class="overallDiscount md" ng-model="overallDiscount" />
+                                    <a href="" ng-show="overallDiscountType=='%'" ng-click="overallDiscountType='$'">%</a>
+                                    <a href="" ng-show="overallDiscountType=='$'" ng-click="overallDiscountType='%'">$</a>
+                                    -
+                                </td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="5">Final Total</td>
+                                <td>{{ getTotal() }}</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="col-md-4">
+            <div class="form-horizontal">
+                <h4>stock_in</h4>
+                <hr />
+                @Html.ValidationSummary(true)
+
+                <div class="form-group">
+                    <label class="control-label col-md-3">Supplier</label>
+                    <div class="col-md-12">
+                        @Html.DropDownList("supplier_id", String.Empty)
+                        @Html.ValidationMessageFor(model => model.supplier_id)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3">Types</label>
+                    <div class="col-md-12">
+                        <input type="text" class="qty_of_producttypes" value="{{products.length}}" />
+                        @Html.ValidationMessageFor(model => model.qty_of_producttypes)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3">Payment</label>
+                    <div class="col-md-12">
+                        <input type="text" class="supplier_payment" value="{{ getTotal() }}" />
+                        @Html.ValidationMessageFor(model => model.supplier_payment)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3">Paid</label>
+                    <div class="col-md-12">
+                        <input type="text" class="paid greentxt" ng-model="paid">
+                        @Html.ValidationMessageFor(model => model.paid_amount)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3">Left</label>
+                    <div class="col-md-12">
+                        <input type="text" class="left" value="{{ sumtotal-paid }}">
+                        @Html.ValidationMessageFor(model => model.left_amount)
+                    </div>
+                </div>
+
+                @*<div class="form-group">
+                    @Html.LabelFor(model => model.admin_user_id, "admin_user_id", new { @class = "control-label col-md-3" })
+                    <div class="col-md-12">
+                        @Html.DropDownList("admin_user_id", String.Empty)
+                        @Html.ValidationMessageFor(model => model.admin_user_id)
+                    </div>
+                </div>*@
+
+                <div class="form-group">
+                    <label class="control-label col-md-3">Status</label>
+                    <div class=" col-md-12">
+                        <select>
+                            <option value="0">Direct Stock Insert</option>
+                            <option value="1">Purchase Order</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">                    
+                    <label class="control-label col-md-3">Location</label>
+                    <div class="col-md-12">
+                        @Html.DropDownList("stock_location_id", String.Empty)
+                        @Html.ValidationMessageFor(model => model.stock_location_id)
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-12">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+
+                <hr />
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.stock_in_time, new { @class = "control-label col-md-3" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.stock_in_time)
+                        @Html.ValidationMessageFor(model => model.stock_in_time)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.paid, new { @class = "control-label col-md-3" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.paid)
+                        @Html.ValidationMessageFor(model => model.paid)
+                    </div>
+                </div>
+
+                @*<div class="form-group">
+                    <label class = "control-label col-md-3" >
+                        Due
+                    </label>
+                    <div class="col-md-12">
+                        @Html.DropDownList("supplier_payment_left_id", String.Empty)
+                        @Html.ValidationMessageFor(model => model.supplier_payment_left_id)
+                    </div>
+                </div>*@
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.move_to_stock, new { @class = "control-label col-md-3" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.move_to_stock)
+                        @Html.ValidationMessageFor(model => model.move_to_stock)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.return_amt, new { @class = "control-label col-md-3" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.return_amt)
+                        @Html.ValidationMessageFor(model => model.return_amt)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.daily_transition_id, "daily_transition_id", new { @class = "control-label col-md-3" })
+                    <div class="col-md-12">
+                        @Html.DropDownList("daily_transition_id", String.Empty)
+                        @Html.ValidationMessageFor(model => model.daily_transition_id)
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    }
+
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

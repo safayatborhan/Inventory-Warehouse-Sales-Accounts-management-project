@@ -1,0 +1,304 @@
+﻿@{
+    Layout = null;
+}
+<html>
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <title>Rice Mill Solutions|Dada Rice</title>
+    @*<style>
+        body {
+            background: url('../images/LogBack.jpg') no-repeat fixed center center;
+            background-size: cover;
+            font-family: Montserrat;
+        }
+
+        .login-block {
+            width: 320px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            border-top: 5px solid #ff656c;
+            margin: 0 auto;
+        }
+
+            .login-block h1 {
+                text-align: center;
+                color: #000;
+                font-size: 18px;
+                text-transform: uppercase;
+                margin-top: 0;
+                margin-bottom: 20px;
+            }
+
+            .login-block input {
+                width: 100%;
+                height: 42px;
+                box-sizing: border-box;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                margin-bottom: 20px;
+                font-size: 14px;
+                font-family: Montserrat;
+                padding: 0 20px 0 50px;
+                outline: none;
+            }
+
+                .login-block input#username {
+                    background: #fff url('http://i.imgur.com/u0XmBmv.png') 20px top no-repeat;
+                    background-size: 16px 80px;
+                }
+
+                    .login-block input#username:focus {
+                        background: #fff url('http://i.imgur.com/u0XmBmv.png') 20px bottom no-repeat;
+                        background-size: 16px 80px;
+                    }
+
+                .login-block input#password {
+                    background: #fff url('http://i.imgur.com/Qf83FTt.png') 20px top no-repeat;
+                    background-size: 16px 80px;
+                }
+
+                    .login-block input#password:focus {
+                        background: #fff url('http://i.imgur.com/Qf83FTt.png') 20px bottom no-repeat;
+                        background-size: 16px 80px;
+                    }
+
+                .login-block input:active, .login-block input:focus {
+                    border: 1px solid #ff656c;
+                }
+
+            .login-block button {
+                width: 100%;
+                height: 40px;
+                background: #ff656c;
+                box-sizing: border-box;
+                border-radius: 5px;
+                border: 1px solid #e15960;
+                color: #fff;
+                font-weight: bold;
+                text-transform: uppercase;
+                font-size: 14px;
+                font-family: Montserrat;
+                outline: none;
+                cursor: pointer;
+            }
+
+                .login-block button:hover {
+                    background: #ff7b81;
+                }
+        </style>*@
+
+    <style>
+
+        .col-md-4 {
+    
+}
+
+.progress-bar {
+    color: #333;
+} 
+* {
+    -webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	outline: none;
+}
+
+    .form-control {
+	  position: relative;
+	  font-size: 16px;
+	  height: auto;
+	  padding: 10px;
+		include box-sizing(border-box);
+
+		&:focus {
+		  z-index: 2;
+		}
+	}
+
+body {
+	background: url(http://i.imgur.com/GHr12sH.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.login-form {
+	margin-top: 151px;
+}
+
+form[role=login] {
+	color: #5d5d5d;
+	background: #f2f2f2;
+	padding: 26px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+	form[role=login] img {
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 35px;
+	}
+	form[role=login] input,
+	form[role=login] button {
+		font-size: 18px;
+		margin: 16px 0;
+	}
+	form[role=login] > div {
+		text-align: center;
+	}
+	
+.form-links {
+	text-align: center;
+	margin-top: 1em;
+	margin-bottom: 50px;
+}
+	.form-links a {
+		color: #fff;
+	}
+    </style>
+    
+
+</head>
+
+<body class="login-page">
+
+    @*<div class="login-block">
+        <form class="m-t" role="form" action="post">
+            <div class="form-group">
+                <h1>রাইস মিল ম্যানেজমেন্ট সিস্টেমস</h1>
+            </div>
+            <div class="form-group">
+                <input type="text" value="sajid" autocomplete="off" maxlength="8" class="form-control text-muted" placeholder="Username" required="" id="txtUserName">
+            </div>
+            <div class="form-group">
+                <input type="password" value="1234" autocomplete="off" maxlength="20" class="form-control text-muted" placeholder="Password" required="" id="txtPassword" onkeyup="Mykeydown(event,this)">
+            </div>
+            <button type="button" class="btn btn-primary block full-width m-b" id="btnLogin" name="btnLogin">Login(লগইন করুন )</button>
+            <label id="lblMessage" class="form-control text-danger hidden"></label>
+
+        </form>
+    </div>*@
+
+
+    <div class="container">
+
+        <div class="row" id="pwd-container">
+            <div class="col-md-4"></div>
+
+            <div class="col-md-4">
+                <div class="center-block">
+                    <section class="login-form">
+                        <form method="post" action="/Login/Login" role="login">
+                            @*<img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" />*@
+                            <div class="form-group">
+                                <h1>রাইস মিল ম্যানেজমেন্ট সিস্টেমস</h1>
+                            </div>
+                            <div>
+                                @{
+                                    var errors = ViewData.ModelState.Where(n => n.Value.Errors.Count > 0).ToList();
+                                    foreach (var item in errors)
+                                    {
+                                        foreach (var itm in item.Value.Errors)
+                                        {
+                                            <p class="alert-danger">@itm.ErrorMessage</p>
+                                        }
+                                    }
+                                }
+                            </div>
+                            <input type="text" name="UserName" placeholder="Email" required class="form-control input-lg" required value="sajid"  id="UserName" />
+                            <input type="password" class="form-control input-lg" id="UserPassword" placeholder="Password" required value="1234" name="UserPassword" />
+                            <div class="pwstrength_viewport_progress"></div>
+                            <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Login(লগইন করুন)</button>
+                            <div>
+                                <a href="#">reset password</a>
+                            </div>
+                        </form>
+
+                        @*<div class="form-links">
+                    <a href="#">www.website.com</a>
+                </div>*@
+                    </section>
+                </div>
+            </div>            
+
+        </div>
+
+        @*<p>
+            <a href="http://validator.w3.org/check?uri=http%3A%2F%2Fbootsnipp.com%2Fiframe%2FW00op" target="_blank"><small>HTML</small><sup>5</sup></a>
+            <br>
+            <br>
+
+        </p>*@
+
+
+    </div>
+
+    <!-- Javascripts-->
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/plugins/pace.min.js"></script>
+    <script src="~/Scripts/main.js"></script>
+</body>
+
+
+
+</html>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#txtUserName").focus();
+    });
+
+        //$("#btnLogin").click(function () {
+        //    DoLogin();
+        //});
+        function DoLogin()
+        {
+            var userName = $("#txtUserName").val().trim();
+            var password = $("#txtPassword").val().trim();
+            if (userName == "") {
+                $("#lblMessage").removeClass("hidden")
+                $("#lblMessage").html("User Name can not be empty.");
+                return;
+            }
+            if (password == "") {
+                $("#lblMessage").removeClass("hidden")
+                $("#lblMessage").html("Password can not be empty.");
+                return;
+            }
+            $.ajax({
+                url: '@Url.Action("Login","Login")',
+                type: 'post',
+                async: false,
+                data: { userName: userName, password: password },
+                success: function (resp) {
+                    var msg = resp;
+                    if (msg!=null) {
+                        var url = '@Url.Action("Index", "HomePage")';
+                        window.location.href = url;
+                    }
+                    else {
+                        $("#lblMessage").removeClass("hidden")
+                        $("#lblMessage").html(msg.ReturnMessage);
+                    }
+                },
+                error: function (resp) {
+                    $("#lblMessage").html(msg.ReturnMessage);
+                }
+            });
+        }
+
+    function Mykeydown(e, txtPassword) {
+        var code = (e.keycode ? e.keycode : e.which)
+        if (code == 13) {
+            DoLogin();
+        }
+    };
+</script>
+
+
+

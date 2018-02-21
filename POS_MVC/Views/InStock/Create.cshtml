@@ -1,0 +1,113 @@
+﻿@model POS_MVC.Models.stock_in_products
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>stock_in_products</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.stock_in_id, "stock_in_id", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("stock_in_id", String.Empty)
+                @Html.ValidationMessageFor(model => model.stock_in_id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.product_id, "product_id", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("product_id", String.Empty)
+                @Html.ValidationMessageFor(model => model.product_id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.product_buy_pric, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.product_buy_pric)
+                @Html.ValidationMessageFor(model => model.product_buy_pric)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.product_sell_default_price, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.product_sell_default_price)
+                @Html.ValidationMessageFor(model => model.product_sell_default_price)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.product_qty, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.product_qty)
+                @Html.ValidationMessageFor(model => model.product_qty)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.stock_status, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.stock_status)
+                @Html.ValidationMessageFor(model => model.stock_status)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.additional_cost, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.additional_cost)
+                @Html.ValidationMessageFor(model => model.additional_cost)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.supplier_id, "supplier_id", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("supplier_id", String.Empty)
+                @Html.ValidationMessageFor(model => model.supplier_id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.stock_location_id, "stock_location_id", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("stock_location_id", String.Empty)
+                @Html.ValidationMessageFor(model => model.stock_location_id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.stock_in_time, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.stock_in_time)
+                @Html.ValidationMessageFor(model => model.stock_in_time)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

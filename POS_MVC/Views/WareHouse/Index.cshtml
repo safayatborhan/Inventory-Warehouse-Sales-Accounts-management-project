@@ -1,0 +1,136 @@
+﻿@model POS_MVC.Models.WareHouse
+@{
+    ViewBag.Title = "WareHouse Setup";
+}
+
+<link rel="icon" type="img/x-icon" href="~/Content/Images/bill.jpg" />
+
+
+
+<style type="text/css">
+    fieldset {
+        margin: 4px;
+        border: 1px solid silver;
+        padding: 4px;
+        border-radius: 2px;
+        border-color: lightgray;
+    }
+
+    legend {
+        padding: 2px;
+        font-size: 14px;
+        font-weight: bolder;
+        color: grey;
+    }
+</style>
+
+
+  <div class="page-title">
+                <div>
+                    <h1><i class="fa fa-edit"></i> WareHouse</h1>
+
+                </div>
+                <div>
+                    <ul class="breadcrumb">
+                        <li><i class="fa fa-home fa-lg"></i></li>
+                        <li>Forms</li>
+                        <li><a href="#">Form Components</a></li>
+                    </ul>
+                </div>
+            </div>
+  <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="well bs-component">
+                                    <form class="form-horizontal">
+                                        <fieldset>
+
+
+                                            <div class="form-group">
+                                                <input type="hidden" id="hdId" />
+                                                <label class="col-md-2 control-label">
+                                                    WareHouse Name:
+                                                </label>
+                                                <div class="col-md-4">
+                                                    <input type="text" id="txtWareHouseName" name="txtWareHouseName" class="form-control"/>
+                                                </div>
+                                            </div>
+
+                                            <fieldset>
+                                                <div class="form-actions">
+                                                    <div class="col-md-12">
+                                                        <button class="btn btn-w-m btn-info" data-style="expand-left" id="btnSave" type="button" onclick="Save()"><i class="fa fa-save"></i>&nbsp; Save</button>
+                                                        <button class="btn btn-w-m btn-primary" data-style="expand-left" id="btnUpdate" type="button" onclick="Update()"><i class="fa fa-save"></i>&nbsp; Update</button>
+                                                        <button class="btn btn-danger" data-style="expand-left" id="btnDelete" type="button" onclick="Delete()"><i class="fa fa-minus"></i>&nbsp; Delete</button>
+                                                        <button class="btn btn-w-m btn-success" type="button" id="btnReset" onclick="ResetForm()"><i class="fa fa-refresh"></i>&nbsp;Reset</button>
+
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+
+                                            <div class="ibox-title">
+                                                @*<h5>Color List</h5>*@
+                                            </div>
+                                            <br />
+                                            <br />
+
+                                            <div class="ibox-content" id="divInfo">
+
+                                                <div class="form-group">
+                                                    <div class="col-md-12 table-responsive" id="div-productGroup">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-lg-offset-1">
+                                <form class="bs-component">
+                                        <script id="templateProductGroupModal" type="text/html">
+                                            <table class="table table-bordered table-striped table-hover" id="productGroupTableModal">
+                                                <thead>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Action</th>
+                                                </thead>
+                                                <tbody>
+                                                    {{#ProductGroupSearch}}
+
+                                                    <tr>
+                                                        <td> {{Id}}</td>
+                                                        <td> {{WareHouseName}}</td>
+                                                        <td class="action-sm">
+                                                            <a class="btn btn-primary btn-xs" onclick="LoadForEdit('{{Id}}')"><i class="fa fa-edit"></i> Select</a>
+                                                        </td>
+                                                    </tr>
+
+                                                    {{/ProductGroupSearch}}
+                                                </tbody>
+                                            </table>
+                                        </script>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       
+<script src="~/Scripts/app/WareHouse.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+

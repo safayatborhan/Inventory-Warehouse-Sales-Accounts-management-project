@@ -1,0 +1,64 @@
+﻿
+
+<div class="row">
+    <label>Paddy Report/ চালের রিপোর্ট</label>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="well bs-component">
+                        <form class="form-horizontal">
+                            <fieldset>
+                                <div class="form-group">                                    
+                                    <label class="col-md-2 control-label">
+                                        Supplier :
+                                    </label>
+                                    <div class="col-md-4">
+                                        <select class="form-control" id="ddlSupplier" name="ddlSupplier" onchange="GetDataForSupplier()"></select>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">
+                                        Warehouse :
+                                    </label>
+                                    <div class="col-md-4">
+                                        <select class="form-control" id="ddlWarehouse" name="ddlWarehouse" onchange="GetDataForWarehouse()"></select>
+                                    </div>
+                                    
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <br /><br />
+                    <div>
+                        <div class="ibox-content" id="divInfo">
+
+                            <div class="form-group">
+                                <div class="col-md-12 table-responsive" id="div-inventoryPaddyGroup">
+                                    <table class="table table-striped table-bordered table-hover order-column"
+                                           id="inventoryPaddyReportTableModal">
+                                        <thead>
+                                        <tr>
+                                            <th>Item/পণ্য</th>
+                                            <th>Warehouse</th>
+                                            <th>Qty In Bale/বস্তার পরিমান</th>
+                                            <th>Balance Qty/সর্বমোট বস্তা</th>
+                                            <th>Qty in KG/সর্বমোট কেজি</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/app/CommonLoader.js"></script>
+<script src="~/Scripts/app/PaddyReport.js"></script>

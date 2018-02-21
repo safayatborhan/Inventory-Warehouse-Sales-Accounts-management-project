@@ -1,0 +1,104 @@
+﻿@model POS_MVC.Models.stock_in_products
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>stock_in_products</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.product_buy_pric)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_buy_pric)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_sell_default_price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_sell_default_price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product_qty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_qty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stock_status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stock_status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.additional_cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.additional_cost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stock_in_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stock_in_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.avail_stock_products.product_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.avail_stock_products.product_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.loc_stock_location.stock_location_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loc_stock_location.stock_location_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stock_in.stock_in_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stock_in.stock_in_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.supplier.supplier_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.supplier.supplier_name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
